@@ -19,4 +19,5 @@ jobs:
           make install
       - name: Run linter
         run: |
+          chmod +x brain_games/scripts/brain_games.py
           make lint
