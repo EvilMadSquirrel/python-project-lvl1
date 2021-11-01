@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """Even game script."""
 import random
 
