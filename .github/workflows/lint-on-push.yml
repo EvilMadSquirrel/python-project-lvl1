@@ -1,8 +1,22 @@
-name: lint-on-push
-on: push
+name: Lint On Push
+
+on:
+  - push
+
 jobs:
-  make-lint:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: make-lint
-        run: ../make lint
+      - uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+        # make depends on poetry
+      - name: Install dependencies
+        run: |
+          pip install poetry
+          make install
+      - name: Run linter
+        run: |
+          make lint
