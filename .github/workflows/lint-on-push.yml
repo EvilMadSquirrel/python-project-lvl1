@@ -20,4 +20,5 @@ jobs:
       - name: Run linter
         run: |
           chmod +x brain_games/scripts/brain_games.py
+          chmod +x brain_games/scripts/brain_even.py
           make lint
