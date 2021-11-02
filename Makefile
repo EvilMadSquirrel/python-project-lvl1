@@ -4,9 +4,6 @@ install:
 uninstall:
 	pip uninstall hexlet-code
 
-brain-games:
-	poetry run brain-games
-
 brain-even:
 	poetry run brain-even
 
