@@ -4,25 +4,25 @@
 
 ### Brain Games
 
-    Консольные математические игры:
+Консольные математические игры:
 
-        #### brain-even
+#### brain-even
 
 [![asciicast](https://asciinema.org/a/ZEMBpPrJMBBgwcJ0ruEKPfuSo.svg)](https://asciinema.org/a/ZEMBpPrJMBBgwcJ0ruEKPfuSo)
 
-        #### brain-calc
+#### brain-calc
 
 [![asciicast](https://asciinema.org/a/446451.svg)](https://asciinema.org/a/446451)
 
-        #### brain-gcd
+#### brain-gcd
 
 [![asciicast](https://asciinema.org/a/446469.svg)](https://asciinema.org/a/446469)
 
-        #### brain-progression
+#### brain-progression
 
 [![asciicast](https://asciinema.org/a/446497.svg)](https://asciinema.org/a/446497)
 
-        #### brain-prime
+#### brain-prime
 
 [![asciicast](https://asciinema.org/a/446505.svg)](https://asciinema.org/a/446505)
 
@@ -30,21 +30,15 @@
 
 #### Установка:
 
-    ```
         make install
         make build
         make publish
         make package-install
 
-    ```
-
 #### Запуск:
 
-    ```
         brain-even
         brain-calc
         brain-gcd
         brain-progression
         brain-prime
-
-    ```
