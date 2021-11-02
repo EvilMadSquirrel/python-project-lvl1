@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """Calc game script."""
 import random
 
