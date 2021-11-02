@@ -2,16 +2,15 @@
 """Even game script."""
 import random
 
-import prompt
-from brain_games.game_utils import finish_game, welcome_user
+from brain_games.game_utils import process_all
 
 
-def check_answer(num, answer):
+def check_answer(num: int, answer: str) -> bool:
     """Do check player answer.
 
     Args:
         num (int): Number to check - even or not.
-        answer (string): Player answer 'yes', 'no' or something else.
+        answer (str): Player answer 'yes', 'no' or something else.
 
     Returns:
         bool: Correct or incorrect player answer.
@@ -30,31 +29,21 @@ def check_answer(num, answer):
     return False
 
 
-def play_game():
-    """Plays the game.
+def generate_question() -> int:
+    """Do generate question.
 
     Returns:
-        string: 'win' if player wins,
-                'loss' if player not wins or unexpected answer
+        int: Random number between 0 and 1000
     """
-    print('Answer "yes" if the number is even, otherwise answer "no".')
-    correct_answers = 0
-    while correct_answers < 3:
-        num = random.randint(0, 1000)
-        print('Question: {0}'.format(num))
-        player_answer = prompt.string('Your answer: ')
-        if check_answer(num, player_answer):
-            correct_answers += 1
-        else:
-            return 'loss'
-    return 'win'
+    number = random.randint(0, 1000)
+    print('Question: {0}'.format(number))
+    return number
 
 
 def main():
     """Do launch and controls even game."""
-    player_name = welcome_user()
-    game_result = play_game()
-    finish_game(player_name, game_result)
+    description = 'Answer "yes" if the number is even, otherwise answer "no".'
+    process_all(description, generate_question, check_answer)
 
 
 if __name__ == '__main__':
