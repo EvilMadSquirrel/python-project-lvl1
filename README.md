@@ -7,23 +7,29 @@
     Консольные математические игры:
 
         #### brain-even
-        [![asciicast](https://asciinema.org/a/ZEMBpPrJMBBgwcJ0ruEKPfuSo.svg)](https://asciinema.org/a/ZEMBpPrJMBBgwcJ0ruEKPfuSo)
+
+[![asciicast](https://asciinema.org/a/ZEMBpPrJMBBgwcJ0ruEKPfuSo.svg)](https://asciinema.org/a/ZEMBpPrJMBBgwcJ0ruEKPfuSo)
 
         #### brain-calc
-        [![asciicast](https://asciinema.org/a/446451.svg)](https://asciinema.org/a/446451)
+
+[![asciicast](https://asciinema.org/a/446451.svg)](https://asciinema.org/a/446451)
 
         #### brain-gcd
-        [![asciicast](https://asciinema.org/a/446469.svg)](https://asciinema.org/a/446469)
+
+[![asciicast](https://asciinema.org/a/446469.svg)](https://asciinema.org/a/446469)
 
         #### brain-progression
-        [![asciicast](https://asciinema.org/a/446497.svg)](https://asciinema.org/a/446497)
+
+[![asciicast](https://asciinema.org/a/446497.svg)](https://asciinema.org/a/446497)
 
         #### brain-prime
-        [![asciicast](https://asciinema.org/a/446505.svg)](https://asciinema.org/a/446505)
+
+[![asciicast](https://asciinema.org/a/446505.svg)](https://asciinema.org/a/446505)
 
 ### Установка и запуск
 
-    #### Установка:
+#### Установка:
+
     ```
         make install
         make build
@@ -31,7 +37,9 @@
         make package-install
 
     ```
-    #### Запуск:
+
+#### Запуск:
+
     ```
         brain-even
         brain-calc
