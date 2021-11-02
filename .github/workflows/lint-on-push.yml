@@ -24,4 +24,5 @@ jobs:
           chmod +x brain_games/scripts/games/brain_calc.py
           chmod +x brain_games/scripts/games/brain_gcd.py
           chmod +x brain_games/scripts/games/brain_progression.py
+          chmod +x brain_games/scripts/games/brain_prime.py
           make lint
