@@ -4,23 +4,34 @@ import random
 
 from brain_games.game_utils import process_all
 
+max_start = 20
 
-def generate_progression():
-    """Do generate arithmetic progression.
+
+def make_progression():
+    """Do generate 'random' progression.
 
     Returns:
-        int: Right answer
+        list(str): Progression
     """
     prog_len = random.randint(5, 10)
     diff = random.randint(2, 10)
-    missing_position = random.randint(0, prog_len - 1)
-    start = random.randint(0, 20)
-    prog = [start + diff * i for i in range(prog_len)]
+    start = random.randint(0, max_start)
+    return [str(start + diff * idx) for idx in range(prog_len)]
+
+
+def generate_question():
+    """Do generate question with progression.
+
+    Returns:
+        str: Right answer
+    """
+    prog = make_progression()
+    missing_position = random.randint(0, len(prog) - 1)
     missing_element = prog[missing_position]
     prog[missing_position] = '..'
-    q_string = 'Question: {0}'.format(' '.join(str(thing) for thing in prog))
-    print(q_string)
-    return missing_element
+
+    print('Question: {0}'.format(' '.join(prog)))
+    return int(missing_element)
 
 
 def check_answer(right_answer, answer):
@@ -50,7 +61,7 @@ def check_answer(right_answer, answer):
 def main():
     """Do launch and controls calc game."""
     description = 'What number is missing in the progression?'
-    process_all(description, generate_progression, check_answer)
+    process_all(description, generate_question, check_answer)
 
 
 if __name__ == '__main__':
