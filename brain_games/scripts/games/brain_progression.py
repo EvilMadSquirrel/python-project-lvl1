@@ -4,7 +4,11 @@ import random
 
 from brain_games.game_utils import process_all
 
-max_start = 20
+MAX_START = 20
+MIN_LEN = 5
+MAX_LEN = 10
+MIN_DIFF = 2
+MAX_DIFF = 10
 
 
 def make_progression():
@@ -13,9 +17,9 @@ def make_progression():
     Returns:
         list(str): Progression
     """
-    prog_len = random.randint(5, 10)
-    diff = random.randint(2, 10)
-    start = random.randint(0, max_start)
+    prog_len = random.randint(MIN_LEN, MAX_LEN)
+    diff = random.randint(MIN_DIFF, MAX_DIFF)
+    start = random.randint(0, MAX_START)
     return [str(start + diff * idx) for idx in range(prog_len)]
 
 

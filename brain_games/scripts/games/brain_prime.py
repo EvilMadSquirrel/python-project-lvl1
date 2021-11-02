@@ -4,6 +4,8 @@ import random
 
 from brain_games.game_utils import process_all
 
+MAX_NUMBER = 1000
+
 
 def is_prime(num):
     """Do check number is prime.
@@ -45,9 +47,9 @@ def generate_question() -> int:
     """Do generate question.
 
     Returns:
-        int: Random number between 0 and 1000
+        int: Random number between 0 and max number
     """
-    number = random.randint(0, 1000)
+    number = random.randint(0, MAX_NUMBER)
     print('Question: {0}'.format(number))
     return number
 

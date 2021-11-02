@@ -4,6 +4,8 @@ import random
 
 from brain_games.game_utils import process_all
 
+MAX_NUMBER = 1000
+
 
 def check_answer(num: int, answer: str) -> bool:
     """Do check player answer.
@@ -35,7 +37,7 @@ def generate_question() -> int:
     Returns:
         int: Random number between 0 and 1000
     """
-    number = random.randint(0, 1000)
+    number = random.randint(0, MAX_NUMBER)
     print('Question: {0}'.format(number))
     return number
 
