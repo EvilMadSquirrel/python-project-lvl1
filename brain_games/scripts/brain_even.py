@@ -3,19 +3,7 @@
 import random
 
 import prompt
-
-
-def welcome_user():
-    """Welcomes user and asks name.
-
-    Returns:
-        string: Player name
-    """
-    print('Welcome to the Brain Games!')
-    name = prompt.string('May I have your name? ')
-    print('Hello, {0}!'.format(name))
-    print('Answer "yes" if the number is even, otherwise answer "no".')
-    return name
+from brain_games.game_utils import finish_game, welcome_user
 
 
 def check_answer(num, answer):
@@ -49,36 +37,24 @@ def play_game():
         string: 'win' if player wins,
                 'loss' if player not wins or unexpected answer
     """
+    print('Answer "yes" if the number is even, otherwise answer "no".')
     correct_answers = 0
     while correct_answers < 3:
         num = random.randint(0, 1000)
         print('Question: {0}'.format(num))
-        user_answer = prompt.string('Your answer: ')
-        if check_answer(num, user_answer):
+        player_answer = prompt.string('Your answer: ')
+        if check_answer(num, player_answer):
             correct_answers += 1
         else:
             return 'loss'
     return 'win'
 
 
-def finish_game(name, game_result):
-    """Do shows result of game.
-
-    Args:
-        name (string): Player name
-        game_result (string): Result of the game ('win' or 'loss')
-    """
-    if game_result == 'win':
-        print('Congratulations, {0}!'.format(name))
-    else:
-        print("Let's try again, {0}!".format(name))
-
-
 def main():
     """Do launch and controls even game."""
-    user_name = welcome_user()
+    player_name = welcome_user()
     game_result = play_game()
-    finish_game(user_name, game_result)
+    finish_game(player_name, game_result)
 
 
 if __name__ == '__main__':
