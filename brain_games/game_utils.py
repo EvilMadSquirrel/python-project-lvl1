@@ -38,7 +38,7 @@ def play_game(gen_func, check_func) -> str:
 
 
 def finish_game(name: str, game_result: str):
-    """Do shows result of game.
+    """Do show result of game.
 
     Args:
         name (str): Player name
@@ -51,7 +51,7 @@ def finish_game(name: str, game_result: str):
 
 
 def process_all(desc: str, gen_func, check_func):
-    """Do controls all games.
+    """Do control all games.
 
     Args:
         desc (str): Game description
