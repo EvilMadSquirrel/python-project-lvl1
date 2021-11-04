@@ -2,7 +2,7 @@
 import prompt
 
 
-def _welcome_user() -> str:
+def welcome_user() -> str:
     """Welcomes user and asks name.
 
     Returns:
@@ -58,7 +58,7 @@ def play_game(desc: str, gen_func, check_func):
         gen_func (function): Function that generates question
         check_func (function): Function that checks answer
     """
-    player_name = _welcome_user()
+    player_name = welcome_user()
     print(desc)
     game_result = _ask_questions(gen_func, check_func)
     _finish_game(player_name, game_result)
