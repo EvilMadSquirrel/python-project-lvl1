@@ -2,7 +2,11 @@
 """Script runs brain-progression game."""
 
 from brain_games.game_engine import play_game
-from brain_games.games.progression import DESCRIPTION, check_answer, generate_question
+from brain_games.games.progression import (
+    DESCRIPTION,
+    check_answer,
+    generate_question,
+)
 
 
 def main():
