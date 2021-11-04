@@ -1,1 +1,1 @@
-"""Main module."""
+"""Scripts for launch games."""

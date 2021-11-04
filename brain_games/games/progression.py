@@ -1,8 +1,7 @@
-#!/usr/bin/env python
-"""Progression game script."""
+"""Logic module for brain-progression game."""
 import random
 
-from brain_games.game_utils import process_all
+DESCRIPTION = 'What number is missing in the progression?'
 
 MAX_START = 20
 MIN_LEN = 5
@@ -60,13 +59,3 @@ def check_answer(right_answer, answer):
     print("'{0}' is wrong answer ;(. ".format(player_answer), end='')
     print("Correct answer was '{0}'.".format(right_answer))
     return False
-
-
-def main():
-    """Do launch and controls calc game."""
-    description = 'What number is missing in the progression?'
-    process_all(description, generate_question, check_answer)
-
-
-if __name__ == '__main__':
-    main()

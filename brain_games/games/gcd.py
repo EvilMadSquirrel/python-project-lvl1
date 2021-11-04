@@ -1,9 +1,8 @@
-#!/usr/bin/env python
-"""GCD game script."""
+"""Logic module for brain-gcd game."""
 import math
 import random
 
-from brain_games.game_utils import process_all
+DESCRIPTION = 'Find the greatest common divisor of given numbers.'
 
 
 def generate_question():
@@ -32,7 +31,6 @@ def check_answer(question, answer):
     """
     num1, num2 = question
     right_answer = math.gcd(num1, num2)
-    player_answer = 0
     try:
         player_answer = int(answer)
     except ValueError:
@@ -44,13 +42,3 @@ def check_answer(question, answer):
     print("'{0}' is wrong answer ;(. ".format(player_answer), end='')
     print("Correct answer was '{0}'.".format(right_answer))
     return False
-
-
-def main():
-    """Do launch and controls calc game."""
-    description = 'Find the greatest common divisor of given numbers.'
-    process_all(description, generate_question, check_answer)
-
-
-if __name__ == '__main__':
-    main()

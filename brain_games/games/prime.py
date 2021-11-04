@@ -1,9 +1,7 @@
-#!/usr/bin/env python
-"""Prime-check game script."""
+"""Logic module for brain-prime game."""
 import random
 
-from brain_games.game_utils import process_all
-
+DESC = 'Answer "yes" if given number is prime. Otherwise answer "no".'
 MAX_NUMBER = 1000
 
 
@@ -52,13 +50,3 @@ def generate_question() -> int:
     number = random.randint(0, MAX_NUMBER)
     print('Question: {0}'.format(number))
     return number
-
-
-def main():
-    """Do launch and controls prime game."""
-    desc = 'Answer "yes" if given number is prime. Otherwise answer "no".'
-    process_all(desc, generate_question, check_answer)
-
-
-if __name__ == '__main__':
-    main()

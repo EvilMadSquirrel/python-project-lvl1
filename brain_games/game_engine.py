@@ -1,8 +1,8 @@
-"""Functions for all games."""
+"""Game engine."""
 import prompt
 
 
-def welcome_user() -> str:
+def _welcome_user() -> str:
     """Welcomes user and asks name.
 
     Returns:
@@ -15,8 +15,8 @@ def welcome_user() -> str:
     return name
 
 
-def play_game(gen_func, check_func) -> str:
-    """Plays the game.
+def _ask_questions(gen_func, check_func) -> str:
+    """Do ask questions.
 
     Args:
         gen_func (function): Function that generates question
@@ -37,7 +37,7 @@ def play_game(gen_func, check_func) -> str:
     return 'win'
 
 
-def finish_game(name: str, game_result: str):
+def _finish_game(name: str, game_result: str):
     """Do show result of game.
 
     Args:
@@ -50,7 +50,7 @@ def finish_game(name: str, game_result: str):
         print("Let's try again, {0}!".format(name))
 
 
-def process_all(desc: str, gen_func, check_func):
+def play_game(desc: str, gen_func, check_func):
     """Do control all games.
 
     Args:
@@ -58,7 +58,7 @@ def process_all(desc: str, gen_func, check_func):
         gen_func (function): Function that generates question
         check_func (function): Function that checks answer
     """
-    player_name = welcome_user()
+    player_name = _welcome_user()
     print(desc)
-    game_result = play_game(gen_func, check_func)
-    finish_game(player_name, game_result)
+    game_result = _ask_questions(gen_func, check_func)
+    _finish_game(player_name, game_result)

@@ -1,8 +1,7 @@
-#!/usr/bin/env python
-"""Even game script."""
+"""Logic module for brain-even game."""
 import random
 
-from brain_games.game_utils import process_all
+DESCRIPTION = 'Answer "yes" if the number is even, otherwise answer "no".'
 
 MAX_NUMBER = 1000
 
@@ -40,13 +39,3 @@ def generate_question() -> int:
     number = random.randint(0, MAX_NUMBER)
     print('Question: {0}'.format(number))
     return number
-
-
-def main():
-    """Do launch and controls even game."""
-    description = 'Answer "yes" if the number is even, otherwise answer "no".'
-    process_all(description, generate_question, check_answer)
-
-
-if __name__ == '__main__':
-    main()

@@ -4,7 +4,24 @@
 
 ### Brain Games
 
-Консольные математические игры:
+Консольные математические игры.
+
+### Установка и запуск
+
+#### Установка:
+
+    make install
+    make build
+    make publish
+    make package-install
+
+#### Запуск:
+
+    brain-even
+    brain-calc
+    brain-gcd
+    brain-progression
+    brain-prime
 
 #### brain-even
 
@@ -26,19 +43,6 @@
 
 [![asciicast](https://asciinema.org/a/446505.svg)](https://asciinema.org/a/446505)
 
-### Установка и запуск
+### Вопросы и пожелания:
 
-#### Установка:
-
-        make install
-        make build
-        make publish
-        make package-install
-
-#### Запуск:
-
-        brain-even
-        brain-calc
-        brain-gcd
-        brain-progression
-        brain-prime
+minichev.s.l@gmail.com

@@ -1,8 +1,7 @@
-#!/usr/bin/env python
-"""Calc game script."""
+"""Logic module for brain-calc game."""
 import random
 
-from brain_games.game_utils import process_all
+DESCRIPTION = 'What is the result of the expression?'
 
 
 def generate_expression():
@@ -53,13 +52,3 @@ def check_expression(question, answer):
     print("'{0}' is wrong answer ;(. ".format(player_answer), end='')
     print("Correct answer was '{0}'.".format(right_answers[operator]))
     return False
-
-
-def main():
-    """Do launch and controls calc game."""
-    description = 'What is the result of the expression?'
-    process_all(description, generate_expression, check_expression)
-
-
-if __name__ == '__main__':
-    main()

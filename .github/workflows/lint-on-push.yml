@@ -8,10 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Python 3.8
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.8
         # make depends on poetry
       - name: Install dependencies
         run: |
@@ -20,9 +16,9 @@ jobs:
       - name: Run linter
         run: |
           chmod +x brain_games/scripts/brain_games.py
-          chmod +x brain_games/scripts/games/brain_even.py
-          chmod +x brain_games/scripts/games/brain_calc.py
-          chmod +x brain_games/scripts/games/brain_gcd.py
-          chmod +x brain_games/scripts/games/brain_progression.py
-          chmod +x brain_games/scripts/games/brain_prime.py
+          chmod +x brain_games/scripts/brain_even.py
+          chmod +x brain_games/scripts/brain_calc.py
+          chmod +x brain_games/scripts/brain_gcd.py
+          chmod +x brain_games/scripts/brain_progression.py
+          chmod +x brain_games/scripts/brain_prime.py
           make lint
