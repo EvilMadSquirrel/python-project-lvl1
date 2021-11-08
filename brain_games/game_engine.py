@@ -44,7 +44,7 @@ def play_game(game):
         player_answer = _normalize_answer(right_answer, player_answer)
         if player_answer is None:
             print("Let's try again, {0}!".format(player_name))
-            break
+            return
         elif player_answer == right_answer:
             print('Correct')
             correct_answers += 1
@@ -52,6 +52,6 @@ def play_game(game):
             print("'{0}' is wrong answer ;(. ".format(player_answer), end='')
             print("Correct answer was '{0}'.".format(right_answer))
             print("Let's try again, {0}!".format(player_name))
-            break
+            return
     if correct_answers == MAX_ROUNDS:
         print('Congratulations, {0}!'.format(player_name))
