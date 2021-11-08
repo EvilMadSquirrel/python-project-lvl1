@@ -2,7 +2,7 @@
 import random
 
 DESCRIPTION = 'Find the greatest common divisor of given numbers.'
-LIMIT = 20
+_LIMIT = 20
 
 
 def _calculate_gcd(num1: int, num2: int) -> int:
@@ -26,8 +26,8 @@ def generate_round():
     Returns:
         tuple(str, int): String question for print and answer
     """
-    num1 = random.randint(0, LIMIT)
-    num2 = random.randint(0, LIMIT)
+    num1 = random.randint(0, _LIMIT)
+    num2 = random.randint(0, _LIMIT)
     answer = _calculate_gcd(num1, num2)
     string_question = '{0} {1}'.format(num1, num2)
     return string_question, answer

@@ -3,8 +3,8 @@ import random
 from typing import Tuple
 
 DESCRIPTION = 'What is the result of the expression?'
-OPERATORS = ('+', '-', '*')
-LIMIT = 50
+_OPERATORS = ('+', '-', '*')
+_LIMIT = 50
 
 
 def _generate_answer(question: Tuple) -> int:
@@ -32,9 +32,9 @@ def generate_round():
         tuple(str, int): String question for print and answer
     """
     question = (
-        random.randint(0, LIMIT),
-        random.choice(OPERATORS),
-        random.randint(0, LIMIT),
+        random.randint(0, _LIMIT),
+        random.choice(_OPERATORS),
+        random.randint(0, _LIMIT),
     )
     answer = _generate_answer(question)
     string_question = '{0} {1} {2}'.format(*question)

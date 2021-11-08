@@ -2,7 +2,7 @@
 import random
 
 DESCRIPTION = 'Answer "yes" if given number is prime. Otherwise answer "no".'
-MAX_NUMBER = 1000
+_MAX_NUMBER = 1000
 
 
 def _is_prime(num):
@@ -38,6 +38,6 @@ def generate_round():
     Returns:
         tuple(int, str): Number and answer 'yes' or 'no'
     """
-    number = random.randint(0, MAX_NUMBER)
+    number = random.randint(0, _MAX_NUMBER)
     answer = _generate_answer(number)
     return number, answer

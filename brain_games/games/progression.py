@@ -3,11 +3,11 @@ import random
 
 DESCRIPTION = 'What number is missing in the progression?'
 
-MAX_START = 20
-MIN_LEN = 5
-MAX_LEN = 10
-MIN_DIFF = 2
-MAX_DIFF = 10
+_MAX_START = 20
+_MIN_LEN = 5
+_MAX_LEN = 10
+_MIN_DIFF = 2
+_MAX_DIFF = 10
 
 
 def _generate_progression():
@@ -16,9 +16,9 @@ def _generate_progression():
     Returns:
         list(int): Progression
     """
-    prog_len = random.randint(MIN_LEN, MAX_LEN)
-    diff = random.randint(MIN_DIFF, MAX_DIFF)
-    start = random.randint(0, MAX_START)
+    prog_len = random.randint(_MIN_LEN, _MAX_LEN)
+    diff = random.randint(_MIN_DIFF, _MAX_DIFF)
+    start = random.randint(0, _MAX_START)
     return [start + diff * idx for idx in range(prog_len)]
 
 

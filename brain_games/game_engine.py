@@ -2,30 +2,30 @@
 
 from brain_games import cli
 
-MAX_ROUNDS = 3
-RIGHT_TEXT_ANSWERS = ('yes', 'no')
+_MAX_ROUNDS = 3
+_RIGHT_TEXT_ANSWERS = ('yes', 'no')
 
 
-def _normalize_answer(right_answer, player_answer):
+def _normalize_answer(right_answer, answer):
     """Do check player answer is correct.
 
     Args:
         right_answer: Correct answer
-        player_answer: Player answer
+        answer: Player answer
 
     Returns:
         Player answer of correct type
     """
-    if right_answer is int:
+    if isinstance(right_answer, int):
         try:
-            player_answer = int(player_answer)
+            answer = int(answer)
         except ValueError:
             print('Incorrect answer')
             return None
-    if right_answer is str and player_answer not in RIGHT_TEXT_ANSWERS:
+    if isinstance(right_answer, str) and answer not in _RIGHT_TEXT_ANSWERS:
         print('Incorrect answer')
         return None
-    return player_answer
+    return answer
 
 
 def play_game(game):
@@ -38,7 +38,7 @@ def play_game(game):
     player_name = cli.welcome_user()
     print(game.DESCRIPTION)
     correct_answers = 0
-    while correct_answers < MAX_ROUNDS:
+    while correct_answers < _MAX_ROUNDS:
         question, right_answer = game.generate_round()
         player_answer = cli.ask_question(question)
         player_answer = _normalize_answer(right_answer, player_answer)
@@ -53,5 +53,5 @@ def play_game(game):
             print("Correct answer was '{0}'.".format(right_answer))
             print("Let's try again, {0}!".format(player_name))
             return
-    if correct_answers == MAX_ROUNDS:
+    if correct_answers == _MAX_ROUNDS:
         print('Congratulations, {0}!'.format(player_name))

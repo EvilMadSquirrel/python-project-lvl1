@@ -2,7 +2,7 @@
 import random
 
 DESCRIPTION = 'Answer "yes" if the number is even, otherwise answer "no".'
-MAX_NUMBER = 1000
+_MAX_NUMBER = 1000
 
 
 def _generate_answer(question: int) -> str:
@@ -26,6 +26,6 @@ def generate_round():
     Returns:
         tuple(int, str): Number and answer 'yes' or 'no'
     """
-    number = random.randint(0, MAX_NUMBER)
+    number = random.randint(0, _MAX_NUMBER)
     answer = _generate_answer(number)
     return number, answer
