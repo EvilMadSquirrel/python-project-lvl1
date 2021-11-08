@@ -1,3 +1,4 @@
+"""Some functions."""
 import prompt
 
 
@@ -15,6 +16,13 @@ def welcome_user() -> str:
 
 
 def ask_question(question):
+    """Do print question and prompt answer.
+
+    Args:
+        question: String question to print
+
+    Returns:
+        str: String answer
+    """
     print('Question: {0}'.format(question))
-    answer = prompt.string('Your answer: ')
-    return answer
+    return prompt.string('Your answer: ')

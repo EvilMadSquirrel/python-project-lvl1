@@ -23,6 +23,11 @@ def _generate_progression():
 
 
 def generate_round():
+    """Do generate question and answer.
+
+    Returns:
+        tuple(str, int): String question for print and answer
+    """
     prog = _generate_progression()
     missing_position = random.randint(0, len(prog) - 1)
     missing_element = prog[missing_position]

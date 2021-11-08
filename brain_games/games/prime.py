@@ -18,6 +18,14 @@ def _is_prime(num):
 
 
 def _generate_answer(question):
+    """Do generate right answer.
+
+    Args:
+        question: Number may be prime or not
+
+    Returns:
+        str: 'yes' if number is prime, else 'no'
+    """
     prime = _is_prime(question)
     if prime:
         return 'yes'
@@ -25,6 +33,11 @@ def _generate_answer(question):
 
 
 def generate_round():
+    """Do generate question and answer.
+
+    Returns:
+        tuple(int, str): Number and answer 'yes' or 'no'
+    """
     number = random.randint(0, MAX_NUMBER)
     answer = _generate_answer(number)
     return number, answer

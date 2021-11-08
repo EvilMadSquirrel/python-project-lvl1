@@ -6,7 +6,7 @@ from brain_games.games import gcd
 
 
 def main():
-    """Do launch calc game."""
+    """Do launch gcd game."""
     play_game(gcd)
 
 
