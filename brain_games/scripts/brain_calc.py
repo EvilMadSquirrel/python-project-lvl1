@@ -1,17 +1,12 @@
 #!/usr/bin/env python
 """Script runs brain-calc game."""
 
-from brain_games.game_engine import play_game
-from brain_games.games.calc import (
-    DESCRIPTION,
-    check_expression,
-    generate_expression,
-)
+from brain_games import games, game_engine
 
 
 def main():
     """Do launch calc game."""
-    play_game(DESCRIPTION, generate_expression, check_expression)
+    game_engine.play_game(games.calc)
 
 
 if __name__ == '__main__':

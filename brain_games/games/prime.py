@@ -1,11 +1,11 @@
 """Logic module for brain-prime game."""
 import random
 
-DESC = 'Answer "yes" if given number is prime. Otherwise answer "no".'
+DESCRIPTION = 'Answer "yes" if given number is prime. Otherwise answer "no".'
 MAX_NUMBER = 1000
 
 
-def is_prime(num):
+def _is_prime(num):
     """Do check number is prime.
 
     Args:
@@ -17,36 +17,14 @@ def is_prime(num):
     return all(num % divider != 0 for divider in range(2, num))
 
 
-def check_answer(num: int, answer: str) -> bool:
-    """Do check player answer.
-
-    Args:
-        num (int): Number to check - prime or not.
-        answer (str): Player answer 'yes', 'no' or something else.
-
-    Returns:
-        bool: Correct or incorrect player answer.
-    """
-    correct_prime = answer == 'yes' and is_prime(num)
-    correct_not_prime = answer == 'no' and not is_prime(num)
-    if answer not in ('yes', 'no'):
-        print('Incompatible answer')
-        return False
-    elif correct_prime or correct_not_prime:
-        print('Correct!')
-        return True
-    right_answer = 'yes' if answer == 'no' else 'no'
-    print("'{0}' is wrong answer ;(. ".format(answer), end='')
-    print("Correct answer was '{0}'.".format(right_answer))
-    return False
+def _generate_answer(question):
+    prime = _is_prime(question)
+    if prime:
+        return 'yes'
+    return 'no'
 
 
-def generate_question() -> int:
-    """Do generate question.
-
-    Returns:
-        int: Random number between 0 and max number
-    """
+def generate_round():
     number = random.randint(0, MAX_NUMBER)
-    print('Question: {0}'.format(number))
-    return number
+    answer = _generate_answer(number)
+    return number, answer

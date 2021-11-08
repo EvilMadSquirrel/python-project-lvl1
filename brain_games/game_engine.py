@@ -1,64 +1,41 @@
 """Game engine."""
-import prompt
+
+from brain_games import cli
+
+MAX_ROUNDS = 3
+RIGHT_TEXT_ANSWERS = {'yes', 'no'}
 
 
-def welcome_user() -> str:
-    """Welcomes user and asks name.
+def _normalize_answer(right_answer, player_answer):
+    if type(right_answer) is int:
+        try:
+            player_answer = int(player_answer)
+        except ValueError:
+            print('Incorrect answer')
+            return
+    if type(right_answer) is str and player_answer not in RIGHT_TEXT_ANSWERS:
+        print('Incorrect answer')
+        return
+    return player_answer
 
-    Returns:
-        str: Player name
-    """
-    print('Welcome to the Brain Games!')
-    name = prompt.string('May I have your name? ')
-    print('Hello, {0}!'.format(name))
 
-    return name
-
-
-def _ask_questions(gen_func, check_func) -> str:
-    """Do ask questions.
-
-    Args:
-        gen_func (function): Function that generates question
-        check_func (function): Function that checks answer
-
-    Returns:
-        str: 'win' if player wins,
-            'loss' if player not wins or unexpected answer
-    """
+def play_game(game):
+    player_name = cli.welcome_user()
+    print(game.DESCRIPTION)
     correct_answers = 0
-    while correct_answers < 3:
-        question = gen_func()
-        player_answer = prompt.string('Your answer: ')
-        if check_func(question, player_answer):
+    while correct_answers < MAX_ROUNDS:
+        question, right_answer = game.generate_round()
+        player_answer = cli.ask_question(question)
+        player_answer = _normalize_answer(right_answer, player_answer)
+        if not player_answer:
+            print("Let's try again, {0}!".format(player_name))
+            return
+        elif player_answer == right_answer:
+            print('Correct')
             correct_answers += 1
         else:
-            return 'loss'
-    return 'win'
-
-
-def _finish_game(name: str, game_result: str):
-    """Do show result of game.
-
-    Args:
-        name (str): Player name
-        game_result (str): Result of the game ('win' or 'loss')
-    """
-    if game_result == 'win':
-        print('Congratulations, {0}!'.format(name))
-    else:
-        print("Let's try again, {0}!".format(name))
-
-
-def play_game(desc: str, gen_func, check_func):
-    """Do control all games.
-
-    Args:
-        desc (str): Game description
-        gen_func (function): Function that generates question
-        check_func (function): Function that checks answer
-    """
-    player_name = welcome_user()
-    print(desc)
-    game_result = _ask_questions(gen_func, check_func)
-    _finish_game(player_name, game_result)
+            print("'{0}' is wrong answer ;(. ".format(player_answer), end='')
+            print("Correct answer was '{0}'.".format(right_answer))
+            print("Let's try again, {0}!".format(player_name))
+            return
+    print('Congratulations, {0}!'.format(player_name))
