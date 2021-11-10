@@ -1,28 +1,10 @@
 """Logic module for brain-calc game."""
+import operator
 import random
-from typing import Tuple
 
 DESCRIPTION = 'What is the result of the expression?'
-_OPERATORS = ('+', '-', '*')
+_operators = {'+': operator.add, '-': operator.sub, '*': operator.mul}
 _LIMIT = 50
-
-
-def _generate_answer(question: Tuple) -> int:
-    """Do generate right answer.
-
-    Args:
-        question: Tuple of two numbers and operator between
-
-    Returns:
-        int: Result of operation with numbers
-    """
-    num1, operator, num2 = question
-    right_answers = {
-        '+': num1 + num2,
-        '*': num1 * num2,
-        '-': num1 - num2,
-    }
-    return right_answers[operator]
 
 
 def generate_round():
@@ -31,12 +13,11 @@ def generate_round():
     Returns:
         tuple(str, int): String question for print and answer
     """
-    question = (
-        random.randint(0, _LIMIT),
-        random.choice(_OPERATORS),
-        random.randint(0, _LIMIT),
-    )
-    answer = _generate_answer(question)
-    string_question = '{0} {1} {2}'.format(*question)
+    num1 = random.randint(0, _LIMIT)
+    random_operator = str(random.choice(list(_operators.keys())))
+    num2 = random.randint(0, _LIMIT)
+
+    answer = _operators.get(random_operator)(num1, num2)
+    string_question = '{0} {1} {2}'.format(num1, random_operator, num2)
 
     return string_question, answer

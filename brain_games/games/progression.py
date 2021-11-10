@@ -10,15 +10,18 @@ _MIN_DIFF = 2
 _MAX_DIFF = 10
 
 
-def _generate_progression():
+def _generate_progression(prog_len, diff, start):
     """Do generate 'random' progression.
 
+    Args:
+        prog_len: Length of progression
+        diff: Difference between elements
+        start: Start number of progression
+
     Returns:
-        list(int): Progression
+        Progression
+
     """
-    prog_len = random.randint(_MIN_LEN, _MAX_LEN)
-    diff = random.randint(_MIN_DIFF, _MAX_DIFF)
-    start = random.randint(0, _MAX_START)
     return [start + diff * idx for idx in range(prog_len)]
 
 
@@ -28,7 +31,10 @@ def generate_round():
     Returns:
         tuple(str, int): String question for print and answer
     """
-    prog = _generate_progression()
+    prog_len = random.randint(_MIN_LEN, _MAX_LEN)
+    diff = random.randint(_MIN_DIFF, _MAX_DIFF)
+    start = random.randint(0, _MAX_START)
+    prog = _generate_progression(prog_len, diff, start)
     missing_position = random.randint(0, len(prog) - 1)
     missing_element = prog[missing_position]
     prog[missing_position] = '..'
